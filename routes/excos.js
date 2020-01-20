@@ -22,6 +22,7 @@ router.post('/', async(req, res)=>{
 
 router.get('/', async(req, res)=>{
     const excos = await Executives.find().sort('name')
+    if(excos.length === 0) return res.json({status:0, message:'No result available',error:false})
     if(!excos) return res.json({status:0, message:'No result available',error:false})
     res.json({excos, status: 0,message:'Excos returned successfully', error: false})
 });
