@@ -5,12 +5,14 @@ const excos = require('./routes/excos')
 const logger = require('./middleware/logger')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
+const mongodb = require('mongodb');
+var MongoClient = mongodb.MongoClient;
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
-mongoose.connect('mongodb+srv://Oladipo:kagawa26@cluster0-h4zfn.mongodb.net/test?retryWrites=true&w=majority')
+MongoClient.connect('mongodb+srv://Oladipo:kagawa26@cluster0-h4zfn.mongodb.net/test?retryWrites=true&w=majority')
 .then(()=> console.log('Connected to mongodb'))
 .catch(err => console.error('Couldnt not connect', err))
 
