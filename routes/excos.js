@@ -22,14 +22,15 @@ router.post('/', async(req, res)=>{
 
 router.get('/', async(req, res)=>{
     const excos = await Executives.find().sort('name')
-    res.send(excos)
+    if(!excos) return res.json({status:0, message:'No result available',error:false})
+    res.json({excos, status: 0,message:'Excos returned successfully', error: false})
 });
 
 router.get('/:id', async(req, res)=>{
     const exco = await Executives.findById(req.params.id)
     console.log(req.params.id)
     if(!exco) return res.status(404).send("The Exco with the given Id can't be find")
-    res.send(exco)
+    res.json({exco, status: 0,message:'Exco returned successfully', error: false})
 });
 
 router.put('/:id', async(req, res)=>{
@@ -46,7 +47,7 @@ router.put('/:id', async(req, res)=>{
     })
     if(!exco) return res.status(404).send("The Exco with the given Id can't be find")
 
-    res.send(exco)
+    res.json({exco, status:0, error:false, message: 'Exco Successfully Updated'})
 
 });
 
@@ -54,7 +55,7 @@ router.delete('/:id', async(req, res)=>{
     const exco = await Executives.findByIdAndDelete(req.params.id)
     if(!exco) return res.status(404).send("The Exco with the given Id can't be find")
 
-    res.send(exco).statusMessage("Executives Successfully Deleted")
+    res.json({status:1, error:true, message: 'Executives Successfully Deleted'})
 })
 
 module.exports = router
