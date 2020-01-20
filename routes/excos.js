@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const {Executives, validate} = require('../model/exco')
 
-
 //console.log('I made it here')
 
 router.post('/', async(req, res)=>{
@@ -29,7 +28,7 @@ router.get('/', async(req, res)=>{
 router.get('/:id', async(req, res)=>{
     const exco = await Executives.findById(req.params.id)
     console.log(req.params.id)
-    if(!exco) return res.status(400).send("The Exco with the given Id can't be find")
+    if(!exco) return res.status(404).send("The Exco with the given Id can't be find")
     res.send(exco)
 });
 
@@ -45,12 +44,17 @@ router.put('/:id', async(req, res)=>{
         department: req.body.department,
         mobile: req.body.mobile
     })
-    if(!exco) return res.status(400).send("The Exco with the given Id can't be find")
+    if(!exco) return res.status(404).send("The Exco with the given Id can't be find")
 
     res.send(exco)
 
 });
 
+router.delete('/:id', async(req, res)=>{
+    const exco = await Executives.findByIdAndDelete(req.params.id)
+    if(!exco) return res.status(404).send("The Exco with the given Id can't be find")
 
+    res.send(exco).statusMessage("Executives Successfully Deleted")
+})
 
 module.exports = router
