@@ -12,7 +12,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
-MongoClient.connect('mongodb+srv://Oladipo:kagawa26@cluster0-h4zfn.mongodb.net/test?retryWrites=true&w=majority')
+mongoose.connect('mongodb://heroku_z41kgdm0:bmeui22ta8k02vq3kevkocrim5@ds213079.mlab.com:13079/heroku_z41kgdm0')
 .then(()=> console.log('Connected to mongodb'))
 .catch(err => console.error('Couldnt not connect', err))
 
