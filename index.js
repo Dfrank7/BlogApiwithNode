@@ -12,7 +12,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 var dev_db_url = 'mongodb+srv://Oladipo:kagawa26@cluster0-h4zfn.mongodb.net/test?retryWrites=true&w=majority'
-var database = process.env.MONGODB_URI || dev_db_url;
+var database = process.env.MONGODB_URI 
 mongoose.connect(database, {useNewUrlParser: true})
 .then(()=> console.log('Connected to mongodb'))
 .catch(err => console.error('Couldnt not connect', err))
