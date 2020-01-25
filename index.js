@@ -11,8 +11,9 @@ var MongoClient = mongodb.MongoClient;
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-
-mongoose.connect('mongodb://heroku_z41kgdm0:bmeui22ta8k02vq3kevkocrim5@ds213079.mlab.com:13079/heroku_z41kgdm0')
+var dev_db_url = 'mongodb+srv://Oladipo:kagawa26@cluster0-h4zfn.mongodb.net/test?retryWrites=true&w=majority'
+var database = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(database, {useNewUrlParser: true})
 .then(()=> console.log('Connected to mongodb'))
 .catch(err => console.error('Couldnt not connect', err))
 
