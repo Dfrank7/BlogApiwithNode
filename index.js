@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require('morgan');
 const app = express()
 const excos = require('./routes/excos')
+const blogs = require('./routes/blogs')
 const logger = require('./middleware/logger')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
@@ -12,13 +13,15 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 var dev_db_url = 'mongodb+srv://Oladipo:kagawa26@cluster0-h4zfn.mongodb.net/test?retryWrites=true&w=majority'
-var database = process.env.MONGODB_URI 
+var database = process.env.MONGODB_URI || dev_db_url
 mongoose.connect(database, {useNewUrlParser: true})
 .then(()=> console.log('Connected to mongodb'))
 .catch(err => console.error('Couldnt not connect', err))
 
 app.use(express.json());
- app.use('/api/excos', excos)
+app.use('/api/excos', excos)
+app.use('/api/blogs', blogs)
+
 
 // if(app.get('env') === 'development'){
 // app.use(morgan('tiny'))
