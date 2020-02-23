@@ -49,7 +49,7 @@ function validateExcos(excos) {
       mobile: Joi.number().required(),
       department: Joi.string().min(5).max(50).required(),
       email: Joi.string().min(7).max(50).required(),
-      number: Joi.number().required()
+    //   number: Joi.number().required()
     };
     return Joi.validate(excos, schema);
   }
