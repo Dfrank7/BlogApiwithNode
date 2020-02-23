@@ -32,13 +32,13 @@ const Executives = mongoose.model('Executives', new mongoose.Schema({
         required: true,
         minlength: 11,
         maxlength: 11
-    },
-    number: {
-        type: Number,
-        required: true,
-        min: 1,
-        maxlength: 2
     }
+    // number: {
+    //     type: Number,
+    //     required: true,
+    //     min: 1,
+    //     maxlength: 2
+    // }
 
 }));
 

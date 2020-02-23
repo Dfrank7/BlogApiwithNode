@@ -15,7 +15,7 @@ router.post('/', async(req, res)=>{
         email: req.body.email,
         department: req.body.department,
         mobile: req.body.mobile,
-        number: req.body.number
+        // number: req.body.number
     });
     exco = await exco.save()
     res.send(exco)
@@ -46,7 +46,7 @@ router.put('/:id', async(req, res)=>{
         email: req.body.email,
         department: req.body.department,
         mobile: req.body.mobile,
-        number: req.body.number
+        // number: req.body.number
     })
     if(!exco) return res.status(404).send("The Exco with the given Id can't be find")
 
