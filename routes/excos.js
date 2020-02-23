@@ -14,14 +14,15 @@ router.post('/', async(req, res)=>{
         post: req.body.post,
         email: req.body.email,
         department: req.body.department,
-        mobile: req.body.mobile
+        mobile: req.body.mobile,
+        number: req.body.number
     });
     exco = await exco.save()
     res.send(exco)
 });
 
 router.get('/', async(req, res)=>{
-    const excos = await Executives.find().sort('name')
+    const excos = await Executives.find().sort('number')
     if(excos.length === 0) return res.json({status:0, message:'No result available',error:false})
     if(!excos) return res.json({status:0, message:'No result available',error:false})
     res.json({excos, status: 0,message:'Excos returned successfully', error: false})
@@ -44,7 +45,8 @@ router.put('/:id', async(req, res)=>{
         post: req.body.post,
         email: req.body.email,
         department: req.body.department,
-        mobile: req.body.mobile
+        mobile: req.body.mobile,
+        number: req.body.number
     })
     if(!exco) return res.status(404).send("The Exco with the given Id can't be find")
 
