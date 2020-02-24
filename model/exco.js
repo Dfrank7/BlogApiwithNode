@@ -28,17 +28,17 @@ const Executives = mongoose.model('Executives', new mongoose.Schema({
         maxlength: 50
     },
     mobile:{
-        type: Number,
+        type: String,
         required: true,
         minlength: 11,
         maxlength: 11
+    },
+    number: {
+        type: Number,
+        required: true,
+        min: 1,
+        maxlength: 2
     }
-    // number: {
-    //     type: Number,
-    //     required: true,
-    //     min: 1,
-    //     maxlength: 2
-    // }
 
 }));
 
@@ -49,7 +49,7 @@ function validateExcos(excos) {
       mobile: Joi.number().required(),
       department: Joi.string().min(5).max(50).required(),
       email: Joi.string().min(7).max(50).required(),
-    //   number: Joi.number().required()
+      number: Joi.number().required()
     };
     return Joi.validate(excos, schema);
   }
