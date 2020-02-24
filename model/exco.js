@@ -47,7 +47,7 @@ function validateExcos(excos) {
       name: Joi.string().min(5).max(50).required(),
       post: Joi.string().required(),
       mobile: Joi.number().required(),
-      department: Joi.string().min(5).max(50).required(),
+      department: Joi.string().min(3).max(50).required(),
       email: Joi.string().min(7).max(50).required(),
       number: Joi.number().required()
     };
