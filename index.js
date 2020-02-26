@@ -7,9 +7,11 @@ const logger = require('./middleware/logger')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 const mongodb = require('mongodb');
+const cors = require('cors')
 var MongoClient = mongodb.MongoClient;
 
 app.use(bodyParser.json())
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 var dev_db_url = 'mongodb+srv://Oladipo:kagawa26@cluster0-h4zfn.mongodb.net/test?retryWrites=true&w=majority'
