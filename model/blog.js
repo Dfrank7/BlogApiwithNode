@@ -27,8 +27,7 @@ const Blog = mongoose.model('Blog', new mongoose.Schema({
 function validateBlog(blog){
     const schema = {
         title: Joi.string().min(5).max(50).required(),
-        details: Joi.string().min(50).required(),
-        timestamp: Joi.required()
+        details: Joi.string().min(50).required()
       };
       return Joi.validate(blog, schema);
     }
