@@ -15,6 +15,11 @@ const Blog = mongoose.model('Blog', new mongoose.Schema({
         type: String,
         required: true,
         minlength: 50
+    },
+
+    timestamp:{
+        type: Date,
+        required: true
     }
 
 }));
@@ -22,7 +27,8 @@ const Blog = mongoose.model('Blog', new mongoose.Schema({
 function validateBlog(blog){
     const schema = {
         title: Joi.string().min(5).max(50).required(),
-        details: Joi.string().min(50).required()
+        details: Joi.string().min(50).required(),
+        timestamp: Joi.required()
       };
       return Joi.validate(blog, schema);
     }

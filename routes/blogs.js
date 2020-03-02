@@ -10,7 +10,8 @@ router.post('/', async(req, res)=>{
 
     let blog = new Blog({
         title: req.body.title,
-        details: req.body.details
+        details: req.body.details,
+        timestamp: new Date().getTime
     });
     blog = await blog.save()
     res.send(blog)
