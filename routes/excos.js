@@ -10,6 +10,7 @@ router.post('/', async(req, res)=>{
     if(error) return res.status(400).send(error.details[0].message)
 
     let exco = new Executives({
+        image_url: req.body.image_url,
         name: req.body.name,
         post: req.body.post,
         email: req.body.email,
@@ -41,6 +42,7 @@ router.put('/:id', async(req, res)=>{
 
     const exco = await Executives.findByIdAndUpdate(req.params.id,
         {
+        image_url: req.body.image_url,
         name: req.body.name,
         post: req.body.post,
         email: req.body.email,

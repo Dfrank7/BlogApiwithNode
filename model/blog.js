@@ -18,7 +18,7 @@ const Blog = mongoose.model('Blog', new mongoose.Schema({
     },
 
     timestamp:{
-        type: String,
+        type: AnalyserNode,
         required: true
     }
 

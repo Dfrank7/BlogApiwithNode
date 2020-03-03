@@ -3,6 +3,11 @@ const mongoose = require('mongoose')
 
 const Executives = mongoose.model('Executives', new mongoose.Schema({
 
+    image_url:{
+        type: String,
+        required: true,
+        minlength: 5
+    },
     name: {
         type: String,
         required: true,
@@ -44,6 +49,7 @@ const Executives = mongoose.model('Executives', new mongoose.Schema({
 
 function validateExcos(excos) {
     const schema = {
+      image_url: Joi.string().min(5).required(),
       name: Joi.string().min(5).max(50).required(),
       post: Joi.string().required(),
       mobile: Joi.number().required(),
