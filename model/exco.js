@@ -5,7 +5,6 @@ const Executives = mongoose.model('Executives', new mongoose.Schema({
 
     image_url:{
         type: String,
-        required: true,
         minlength: 5
     },
     name: {
