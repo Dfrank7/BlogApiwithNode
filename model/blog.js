@@ -15,12 +15,12 @@ const Blog = mongoose.model('Blog', new mongoose.Schema({
         type: String,
         required: true,
         minlength: 50
-    },
-
-    timestamp:{
-        type: AnalyserNode,
-        required: true
     }
+
+    // timestamp:{
+    //     type: any,
+    //     required: true
+    // },
 
 }));
 
