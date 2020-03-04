@@ -16,9 +16,7 @@ const Blog = mongoose.model('Blog', new mongoose.Schema({
         required: true,
         minlength: 50
     },
-
-    //timestamps : true
-
+    timestamps:true
 }));
 
 function validateBlog(blog){
