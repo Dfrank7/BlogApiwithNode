@@ -17,7 +17,7 @@ const Blog = mongoose.model('Blog', new mongoose.Schema({
         minlength: 50
     },
 
-    timestamps : true
+    //timestamps : true
 
 }));
 
