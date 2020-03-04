@@ -15,12 +15,9 @@ const Blog = mongoose.model('Blog', new mongoose.Schema({
         type: String,
         required: true,
         minlength: 50
-    }
+    },
 
-    // timestamp:{
-    //     type: any,
-    //     required: true
-    // },
+    timestamps : true
 
 }));
 
