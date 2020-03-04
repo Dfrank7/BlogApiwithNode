@@ -16,7 +16,7 @@ const Blog = mongoose.model('Blog', new mongoose.Schema({
         required: true,
         minlength: 50
     },
-    timestamps:true
+    time : { type : Date, default: Date.now }
 }));
 
 function validateBlog(blog){
