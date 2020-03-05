@@ -43,7 +43,7 @@ router.put('/:id', async(req, res)=>{
             title: req.body.title,
             details: req.body.details
     })
-    if(!exco) return res.status(404).send("The blog with the given Id can't be find")
+    if(!blog) return res.status(404).send("The blog with the given Id can't be find")
 
     res.json({blog, status:0, error:false, message: 'Blog Successfully Updated'})
 
