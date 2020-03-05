@@ -9,6 +9,7 @@ router.post('/', async(req, res)=>{
     if(error) return res.status(400).send(error.details[0].message)
 
     let blog = new Blog({
+        image_url: req.body.image_url,
         title: req.body.title,
         details: req.body.details
     });
@@ -18,7 +19,7 @@ router.post('/', async(req, res)=>{
 });
 
 router.get('/', async(req, res)=>{
-    const blogs = await Blog.find() 
+    const blogs = await Blog.find().sort('time')
     if(blogs.length === 0) return res.json({status:0, message:'No result available',error:false})
     if(!blogs) return res.json({status:0, message:'No result available',error:false})
     res.json({blogs, status: 0,message:'Blogs returned successfully', error: false})
@@ -38,6 +39,7 @@ router.put('/:id', async(req, res)=>{
 
     const blog = await Blog.findByIdAndUpdate(req.params.id,
         {
+            image_url: req.body.image_url,
             title: req.body.title,
             details: req.body.details
     })
